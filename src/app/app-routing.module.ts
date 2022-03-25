@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {PublicComponent} from "./public/public.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'public', component: PublicComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
