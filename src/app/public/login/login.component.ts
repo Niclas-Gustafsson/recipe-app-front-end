@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       email: formData.email,
       password: formData.password,
     }
-    this.publicService.login().subscribe((res: any) => {
+    this.publicService.login(data).subscribe((res: any) => {
       localStorage.setItem('token', res.data.token);
       this.router.navigate(['/private']);
     });
