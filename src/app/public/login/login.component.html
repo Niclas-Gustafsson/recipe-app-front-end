@@ -1,13 +1,13 @@
 <h1 class="text-center">Sign in</h1>
 
-<form class="form mt-3">
+<form [formGroup]="form" class="form mt-3" (submit)="submit()">
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" id="email" class="form-control" name="email" placeholder="Enter your email">
+    <input formControlName="email" type="email" id="email" class="form-control" name="email" autocomplete="email" placeholder="Enter your email">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" id="password" class="form-control" name="password" placeholder="Enter your password">
+    <input formControlName="password" type="password" id="password" class="form-control" name="password" autocomplete="current-password" placeholder="Enter your password">
   </div>
   <button class="btn btn-lg btn-success btn-block"> Sign in</button>
 </form>
