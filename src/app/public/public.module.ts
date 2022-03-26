@@ -8,6 +8,7 @@ import {RouterModule} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
+import { SearchComponent } from './home/search/search.component';
 
 
 
@@ -18,6 +19,7 @@ import { RegistrationComponent } from './registration/registration.component';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
