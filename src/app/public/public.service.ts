@@ -26,7 +26,9 @@ export class PublicService {
     return this.http.post(`${this.apiURL}/login`, data);
   }
   //register user
-
+  register(data: object) {
+    return this.http.post(`${this.apiURL}/register`, data, this.httpOptions);
+  }
   //logout user
   logout() {
     return this.http.post(`${this.apiURL}/logout`, null, this.httpOptions);

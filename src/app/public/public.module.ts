@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
+import { RegistrationComponent } from './registration/registration.component';
 
 
 
@@ -16,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
     PublicComponent,
     HomeComponent,
     LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {PublicService} from "../public.service";
 
+//import { User } from '../../models/user';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +13,9 @@ import {PublicService} from "../public.service";
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
+  //No need for an interface since I don't want to store sensitive data?
+ // users: User[] = [];
+
   constructor(private fb: FormBuilder, private router: Router, public publicService: PublicService) { }
 
   ngOnInit(): void {
