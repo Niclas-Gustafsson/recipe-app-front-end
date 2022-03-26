@@ -12,7 +12,6 @@ export class PublicService {
 
 
   constructor(private http: HttpClient) { }
-  //httpOptions function
 
     httpOptions = {
       headers: new HttpHeaders({
