@@ -1,0 +1,18 @@
+.search-field {
+  max-width: 30rem;
+  margin-bottom: 2rem;
+}
+
+.ff-inner {
+  margin: 0 auto;
+  max-width: 30rem;
+}
+
+.check {
+  margin: 0 1rem 0 0.4rem;
+}
+
+.search-button {
+  margin-top: 2rem;
+  width: 10rem;
+}
