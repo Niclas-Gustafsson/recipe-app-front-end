@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrivateComponent } from './private/private.component';
 import {PublicModule} from "./public/public.module";
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PrivateComponent,
+    FooterComponent,
 
   ],
   imports: [
