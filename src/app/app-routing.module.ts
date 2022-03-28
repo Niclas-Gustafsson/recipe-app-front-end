@@ -5,6 +5,7 @@ import { HomeComponent } from './public/home/home.component';
 import { LoginComponent } from './public/login/login.component';
 import {PublicComponent} from "./public/public.component";
 import { RegistrationComponent } from './public/registration/registration.component';
+import {ListsComponent} from "./private/lists/lists.component";
 
 const routes: Routes = [
   {
@@ -17,7 +18,13 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'private', component: PrivateComponent},
+  {
+    path: 'user',
+    component: PrivateComponent,
+    children: [
+      {path: 'list', component: ListsComponent}
+    ]
+  }
 ];
 
 @NgModule({
