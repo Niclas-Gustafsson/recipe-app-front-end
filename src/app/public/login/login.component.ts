@@ -32,20 +32,10 @@ export class LoginComponent implements OnInit {
     }
     this.publicService.login(data).subscribe((res: any) => {
       localStorage.setItem('token', res.data.token);
-      this.router.navigate(['/private']);
+      localStorage.setItem('id', res.data.id);
+      this.router.navigate(['/user/list']);
     });
-    //this.http.post('http://127.0.0.1:8000/api/login', data).subscribe(
-    //  (result:any) => {
-    //    //console.log('result');
-    //    //console.log(result.data.token);
-    //    localStorage.setItem('token', result.data.token);
-    //    this.router.navigate(['/private']);
-     // },
-    //  error => {
-    //    console.log('error');
-    //    console.log(error)
-    //  }
-    //);
+
   }
 
 }

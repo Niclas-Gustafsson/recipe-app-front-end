@@ -1,0 +1,13 @@
+<!--<p>recipe-list works!</p>-->
+<div class="container">
+
+<div class="row d-flex align-items-center bg-light p-2 my-1 recipe" *ngFor="let recipe of recipes">
+  <div class="col-sm-8">
+  <h4>{{ recipe.recipe }}</h4>
+
+  </div>
+  <div class="col-sm">
+    <a routerLink="">View details</a>
+  </div>
+</div>
+</div>

@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   loggedIn: boolean = false;
 
   title = 'fe-recipe-app';
@@ -25,7 +25,9 @@ export class AppComponent implements OnInit{
   logout() {
     this.publicService.logout().subscribe(res => {
       localStorage.removeItem('token');
+      localStorage.removeItem('id');
       this.router.navigate(['']);
     });
+    this.loggedIn = false;
   }
 }

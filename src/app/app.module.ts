@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { PrivateComponent } from './private/private.component';
 import {PublicModule} from "./public/public.module";
 import { FooterComponent } from './footer/footer.component';
+import {PrivateModule} from "./private/private.module";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrivateComponent,
     FooterComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PublicModule,
-    RouterModule
+    RouterModule,
+    PrivateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
