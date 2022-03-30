@@ -6,6 +6,7 @@ import { LoginComponent } from './public/login/login.component';
 import {PublicComponent} from "./public/public.component";
 import { RegistrationComponent } from './public/registration/registration.component';
 import {ListsComponent} from "./private/lists/lists.component";
+import {RecipeListComponent} from "./private/lists/recipe-list/recipe-list.component";
 
 const routes: Routes = [
   {
@@ -22,7 +23,13 @@ const routes: Routes = [
     path: 'user',
     component: PrivateComponent,
     children: [
-      {path: 'list', component: ListsComponent}
+      {path: 'list',
+        component: ListsComponent,
+        children: [
+          {path: ':id', component: RecipeListComponent},
+        ]
+      }
+
     ]
   }
 ];

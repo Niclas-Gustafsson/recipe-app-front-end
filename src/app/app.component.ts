@@ -25,6 +25,7 @@ export class AppComponent implements OnInit{
   logout() {
     this.publicService.logout().subscribe(res => {
       localStorage.removeItem('token');
+      localStorage.removeItem('id');
       this.router.navigate(['']);
     });
   }
