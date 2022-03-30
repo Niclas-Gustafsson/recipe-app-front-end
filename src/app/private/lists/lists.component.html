@@ -1,4 +1,4 @@
-<div class="contain py-5">
+<div class="container py-5">
   <div class="row">
     <div class="col-sm-6">
       <h1 class="my-5">Lists here</h1>
@@ -17,18 +17,33 @@
           [ngSwitch]="listId"
           *ngSwitchCase="list.id"
           -->
-          <ul class="list-group" *ngFor="let list of lists">
+          <div class="row d-flex align-items-center bg-light p-2 my-1 recipe" *ngFor="let list of lists">
+            <div class="col-sm-8">
+              <a (click)="getId(list.id)" [routerLink]="[list.id]"><h5>{{list.title}}</h5></a>
+
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-danger" (click)="deleteList(list.id)">Delete list</button>
+            </div>
+          </div>
+          <!--<ul class="list-group" *ngFor="let list of lists">
 
             <a (click)="getId(list.id)" [routerLink]="[list.id]"><li class="list-group-item">{{list.title}}</li></a>
-
-          </ul>
+            &lt;!&ndash;[state]="{data: recipes}"&ndash;&gt;
+          </ul>-->
         </div>
 
       </div>
     </div>
     <div class="col-sm-6">
+      <div class="container py-5">
+        <div class="row">
+
       <h2>list details here</h2>
-      <router-outlet></router-outlet>
+      <app-recipe-list *ngIf="isClicked" [recipes]="recipes"></app-recipe-list>
+      <!--<router-outlet></router-outlet>-->
+        </div>
+      </div>
     </div>
   </div>
 </div>
