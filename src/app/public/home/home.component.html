@@ -16,4 +16,4 @@
     </div>
   </div>
 </header>
-<app-search></app-search>
+<app-search [recipes]="recipes" (emitRecipeId)="getRecipeId($event)"></app-search>

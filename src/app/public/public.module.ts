@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
 import { SearchComponent } from './home/search/search.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 
 
@@ -20,6 +21,7 @@ import { SearchComponent } from './home/search/search.component';
     LoginComponent,
     RegistrationComponent,
     SearchComponent,
+    RecipeDetailsComponent,
   ],
   imports: [
     CommonModule,
