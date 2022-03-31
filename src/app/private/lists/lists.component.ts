@@ -13,7 +13,6 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  //@Input() listId!: number;
   form!: FormGroup
   lists: List[] = [];
   recipes: Recipe[] = [];
@@ -28,7 +27,11 @@ export class ListsComponent implements OnInit {
 
     this.listsService.getLists().subscribe((res ) => {
       this.lists = Object(res).data;
+
+
     })
+
+
   }
   getId(listId: number){
     this.listsService.getRecipes(listId).subscribe((res: Recipe[]) => {
