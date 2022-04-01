@@ -56,6 +56,15 @@ export class ListsService {
       );
   }
 
+  //Recipes
+  addRecipe(listId: number, recipeName: string) {
+    return this.http.post(`${this.apiURL}/add-recipe/${recipeName}/${listId}`, null, this.httpOptions);
+  }
+  //remove recipe
+  deleteRecipe(id: number) {
+    return this.http.post(`${this.apiURL}/remove-recipe/${id}`, null, this.httpOptions);
+  }
+
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
   //apiKey!: string;
   recipes: Recipe[] = [];
-  recipeId!: number;
+  //recipeId!: number;
   constructor(private recipeService: RecipesService, private router: Router) {
     /*this.apiKey = environment.API_KEY;
     console.log(this.apiKey);*/
@@ -22,11 +22,16 @@ export class HomeComponent implements OnInit {
      this.recipeService.getRandomRecipes().subscribe((res: any) => {
        this.recipes = res.recipes.map((res: any) => res);
        console.log(this.recipes);
+
      })
   }
+  //Not used, backtrace and comment out template files: home, search + .ts files.
   getRecipeId(recipeId: number) {
-  this.recipeService.recipeId = recipeId;
-  /*this.router.navigate([`/recipe/${recipeId}`])*/
+    //console.log(recipeId);
+    this.recipeService.setRecipeId(recipeId);
+    //this.recipeService.recipeId = recipeId;
+
+  this.router.navigate([`/recipe/${recipeId}`])
     /*console.log(this.recipeService.recipeId);*/
   }
 }

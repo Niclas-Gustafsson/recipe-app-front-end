@@ -18,7 +18,7 @@ export class RecipeListComponent implements OnInit {
   /*update() {
     this.recipesChange.emit(this.recipes);
   }*/
-  constructor( public lists: ListsComponent) { }
+  constructor( public listService: ListsService) { }
 
   ngOnInit(): void {
     //this.recipes = this.lists.recipes;
@@ -26,4 +26,8 @@ export class RecipeListComponent implements OnInit {
     //console.log(this.recipes[0]);
   }
   /*this.list = this.listsService*/
+
+  deleteRecipe(id: number) {
+    this.listService.deleteRecipe(id).subscribe();
+  }
 }
