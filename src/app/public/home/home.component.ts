@@ -19,11 +19,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     /*this.recipeService.getRandomRecipes().subscribe((res: any) => {
+     this.recipeService.getRandomRecipes().subscribe((res: any) => {
        this.recipes = res.recipes.map((res: any) => res);
        console.log(this.recipes);
 
-     })*/
+     })
   }
 
   //Sends the recipeId to recipeService.

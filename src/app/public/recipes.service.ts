@@ -42,6 +42,10 @@ export class RecipesService {
     //return this.http.get<Recipe>(`${this.apiUrl}/${this.recipeId}/information?apiKey=${this.apiKey}`);
   }
 
+  searchRecipe(data: any): Observable<object> {
+    return this.http.get(`${this.apiUrl}/complexSearch?apiKey=${this.apiKey}&query=${data.query}&diet=${data.diet}&type=${data.type}`, this.httpOptions)
+  }
+
   /*getLists(): Observable<List[]>  {
     return this.http.get<List[]>(`${this.apiURL}/lists/${localStorage.getItem('id')}`, this.httpOptions)
       .pipe(

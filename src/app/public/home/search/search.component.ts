@@ -9,7 +9,10 @@ import {FormBuilder, FormGroup, FormControl, Validators} from "@angular/forms";
 })
 export class SearchComponent implements OnInit {
   form!: FormGroup;
+  isValid!: boolean;
+  errorMessage: string = '';
   diets: string[] = ['Gluten free', 'Vegetarian', 'Vegan'];
+  dishTypes: string[] = ['Breakfast', 'Dessert', 'Main course'];
   //diet: string = 'Filter diets';
   //Get recipes from home component to display. Maybe include the subscribe here instead and print it?
   @Input() recipes!: Recipe[];
@@ -20,11 +23,11 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       query: ['', [Validators.required]],
-      diet: ['', [Validators.required]],
-      //dishTypes: ['', [Validators.required]]
+      diet: '',
+      dishTypes: ''
     });
   }
-  //Form contoller
+ /* //Form controller
   changeDiet(e: any) {
   this.diet?.setValue(e.target.value, {
     onlySelf: true
@@ -32,19 +35,40 @@ export class SearchComponent implements OnInit {
   }
 
   get diet() {
-    return this.form.get('diet');
+    return this.form.get('diets.value');
   }
 
+  changeType(e: any) {
+    this.type?.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+  get type() {
+    return this.form.get('type');
+  }*/
 
 
   searchRecipe() {
     console.log(this.form);
 
     if(!this.form.valid) {
-      return false;
+      this.isValid = false;
+      this.errorMessage = '* Please enter a search term';
+      console.log(this.isValid)
     } else {
-      console.log(this.form.getRawValue());
-      return true;
+      this.isValid = true;
+      /*console.log(this.form.getRawValue());*/
+
+        const formData = this.form.getRawValue();
+      let data = {
+        query: formData.query,
+        diet: formData.diet,
+        type: formData.dishTypes,
+      }
+      this.recipeService.searchRecipe(data).subscribe((res: any) => {
+        this.recipes = res.results;
+      })
+
     }
     /*const formData = this.form.getRawValue();
     const data = {

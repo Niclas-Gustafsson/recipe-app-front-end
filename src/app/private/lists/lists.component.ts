@@ -24,13 +24,11 @@ export class ListsComponent implements OnInit {
     this.form = this.fb.group({
       title: '',
     });
-    setTimeout(() => {
-
 
     this.listsService.getLists().subscribe((res ) => {
       this.lists = Object(res).data;
-      })
-    }, 500)
+      });
+
 
 
   }
