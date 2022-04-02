@@ -5,7 +5,7 @@ import {PublicComponent} from "./public.component";
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
 import { SearchComponent } from './home/search/search.component';
@@ -27,6 +27,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     CommonModule,
     //AppRoutingModule
     RouterModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ]

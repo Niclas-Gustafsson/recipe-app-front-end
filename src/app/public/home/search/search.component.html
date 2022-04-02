@@ -3,20 +3,29 @@
   <h1 class="text-center my-5">Search</h1>
   <h4 class="text-center">Search for recipes below</h4>
   <div class="container">
-    <form class="form-floating">
+    <form class="form-floating" [formGroup]="form" (submit)="searchRecipe()" name="search">
       <div class="form-floating mb-3 ff-inner">
-        <input type="search" class="form-control search-field mx-auto" id="floatingInput" placeholder="search">
+        <input formControlName="query" type="search" class="form-control search-field mx-auto" id="floatingInput" placeholder="search">
         <label for="floatingInput" class="text-center">Search recipes</label>
 
         <div class="form-group">
-          <label for="breakfast" class="mr-1">Breakfast</label>
+          <label for="diet">Choose diet</label>
+          <select id="diet"
+                  formControlName="diet"
+                  class="form-select"
+                  (change)="changeDiet($event)"
+                  >
+            <!--<option disabled selected value="null">Choose a Diet</option>-->
+            <option *ngFor="let diet of diets" [ngValue]="diet">{{ diet }}</option>
+          </select>
+          <!--<label for="breakfast" class="mr-1">Breakfast</label>
           <input type="checkbox" name="breakfast" id="breakfast" class="check">
 
           <label for="lunch" class="mr-1">Lunch</label>
           <input type="checkbox" name="lunch" id="lunch" class="check">
 
           <label for="dinner" class="mr-1">Dinner</label>
-          <input type="checkbox" name="dinner" id="dinner" class="check">
+          <input type="checkbox" name="dinner" id="dinner" class="check">-->
 
           <div class="form-group">
             <label for="gluten-free" class="mr-1">Gluten-free</label>
@@ -29,7 +38,7 @@
             <input type="checkbox" name="shellfish-free" id="shellfish-free" class="check">
           </div>
           <div class="row search-button">
-        <button class="btn btn-success">Search</button>
+        <button type="submit" class="btn btn-success">Search</button>
           </div>
         </div>
       </div>
