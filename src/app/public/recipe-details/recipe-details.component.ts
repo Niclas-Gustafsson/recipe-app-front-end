@@ -47,17 +47,24 @@ export class RecipeDetailsComponent implements OnInit {
     })
   }
 
-  getRecipeId(address: string) {
+  /*getRecipeId(address: string) {
     //let recipeId = address.slice((-6))
     this.recipeId  = address.slice((-6));
-  }
+  }*/
 
-  userAddRecipe(listId: number, recipeName: string) {
-    this.listService.addRecipe(listId, recipeName).subscribe((res: object) => {
+  userAddRecipe(listId: number, recipeName: string, recipeId: number, image: string) {
+    const data = {
+      recipeName: recipeName,
+      recipeId: recipeId,
+      image: image,
+    }
+    this.listService.addRecipe(listId, data).subscribe((res: object) => {
       console.log(res);
     })
     console.log(listId)
     console.log(recipeName)
+    console.log(recipeId)
+    console.log(image)
   }
 
 }

@@ -9,7 +9,7 @@ import { Observable, throwError } from 'rxjs';
 })
 export class PublicService {
   private apiURL = 'http://127.0.0.1:8000/api';
-
+  loggedInAreWe!: boolean;
 
   constructor(private http: HttpClient) { }
 

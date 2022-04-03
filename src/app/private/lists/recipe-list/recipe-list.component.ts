@@ -27,7 +27,9 @@ export class RecipeListComponent implements OnInit {
   }
   /*this.list = this.listsService*/
 
-  deleteRecipe(id: number) {
-    this.listService.deleteRecipe(id).subscribe();
+  deleteRecipe(id: number, listId: number) {
+    this.listService.deleteRecipe(id).subscribe((res) => {
+      this.recipes = this.recipes.filter((item) => item.id !== id);
+    });
   }
 }

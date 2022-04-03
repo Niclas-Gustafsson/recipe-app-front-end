@@ -57,8 +57,10 @@ export class ListsService {
   }
 
   //Recipes
-  addRecipe(listId: number, recipeName: string) {
-    return this.http.post(`${this.apiURL}/add-recipe/${recipeName}/${listId}`, null, this.httpOptions);
+  addRecipe(listId: number, data: object) {
+    return this.http.post(`${this.apiURL}/add-recipe/${listId}`,
+      JSON.stringify(data),
+      this.httpOptions);
   }
   //remove recipe
   deleteRecipe(id: number) {

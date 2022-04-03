@@ -8,7 +8,7 @@
 
         </div>
       </div>
-      <div class="col-xl-6 p-5">
+      <div class="col-xl-6 py-5">
         <img class="img-fluid" src="{{ recipe.image }}" alt="">
       </div>
     </div> <!--row ends-->
@@ -19,14 +19,14 @@
       </div>
       <div class="col-sm-6 mb-5 p-5">
 
-        <p>list option goes here</p>
+        <!--<p>list option goes here</p>-->
           <!--*ngIf="loggedIn"-->
         <div class="dropdown" *ngIf="loggedIn">
           <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Add to list
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li class="dropdown-item" *ngFor="let list of lists" (click)="userAddRecipe(list.id, recipe.title)">{{ list.title }}</li>
+            <li class="dropdown-item" *ngFor="let list of lists" (click)="userAddRecipe(list.id, recipe.title, recipe.id, recipe.image)">{{ list.title }}</li>
           </ul>
         </div>
       </div>
@@ -40,7 +40,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 p-5">
         <h4>Diets</h4>
           <p>{{ recipe.diets }}</p>
       </div>
@@ -48,7 +48,7 @@
     <div class="row justify-content-start my-3">
       <div class="col-sm-4">
       <h4>Instructions:</h4>
-      <p>{{ recipe.instructions}}</p>
+      <p [innerHTML]="recipe.instructions"></p>
       </div>
     </div>
   </div>
