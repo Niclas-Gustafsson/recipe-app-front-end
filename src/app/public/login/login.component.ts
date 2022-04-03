@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
     this.publicService.login(data).subscribe((res: any) => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('id', res.data.id);
-      this.router.navigate(['/user/list']);
+
+      this.router.navigate(['/']);
+
     });
 
   }

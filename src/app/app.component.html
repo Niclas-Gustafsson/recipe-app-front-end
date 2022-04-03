@@ -11,8 +11,16 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" routerLink="/login" *ngIf="!loggedIn">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/user/list" *ngIf="loggedIn">My lists</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link text-light" routerLink="/" *ngIf="loggedIn" (click)="logout()">Logout</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link text-light" routerLink="/register" *ngIf="!loggedIn">Register</a>
         </li>

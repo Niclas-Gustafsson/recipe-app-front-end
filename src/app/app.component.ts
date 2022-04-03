@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
     this.publicService.logout().subscribe(res => {
       localStorage.removeItem('token');
       localStorage.removeItem('id');
+      this.loggedIn = false;
       this.router.navigate(['']);
     });
-    this.loggedIn = false;
   }
 }

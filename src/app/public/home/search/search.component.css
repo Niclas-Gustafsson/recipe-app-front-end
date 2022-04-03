@@ -1,3 +1,7 @@
+
+.errorMsg {
+  color: red;
+}
 .search-field {
   max-width: 30rem;
   margin-bottom: 2rem;

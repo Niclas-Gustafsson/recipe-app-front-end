@@ -7,6 +7,7 @@ import {PublicComponent} from "./public/public.component";
 import { RegistrationComponent } from './public/registration/registration.component';
 import {ListsComponent} from "./private/lists/lists.component";
 import {RecipeListComponent} from "./private/lists/recipe-list/recipe-list.component";
+import {RecipeDetailsComponent} from "./public/recipe-details/recipe-details.component";
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegistrationComponent}
+      {path: 'register', component: RegistrationComponent},
+      {path: 'recipe/:id', component: RecipeDetailsComponent},
     ]
   },
 

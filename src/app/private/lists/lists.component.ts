@@ -13,11 +13,11 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  //@Input() listId!: number;
   form!: FormGroup
   lists: List[] = [];
   recipes: Recipe[] = [];
   isClicked: boolean = false;
+  listTitle!: string;
   constructor(private fb: FormBuilder, public listsService: ListsService) {
   }
 
@@ -28,12 +28,17 @@ export class ListsComponent implements OnInit {
 
     this.listsService.getLists().subscribe((res ) => {
       this.lists = Object(res).data;
-    })
+      });
+
+
+
   }
+  //Calls for the recipes with the id of the clicked list and updates the recipes-property
   getId(listId: number){
     this.listsService.getRecipes(listId).subscribe((res: Recipe[]) => {
       this.recipes = Object(res).data;
       this.isClicked = true;
+      console.log(this.recipes)
       //Push recipes to the "state" browser history property "data" and set a new property of type array named recipes. This to be able to fetch the history data property in the child component.
       //history.state.data.push(this.recipes);
       //console.log(this.recipes)
@@ -49,8 +54,10 @@ export class ListsComponent implements OnInit {
       title: formData.title,
     }
     this.listsService.createList(data).subscribe((res: any) => {
+      console.log(res.data.id);
+      /*this.lists = this.lists.map((item) => this.lists = item)*/
       //console.log('result');
-      console.log(res);
+      /*console.log(res);*/
       //localStorage.setItem('token', res.data.token);
       //this.router.navigate(['/login']);
     });
@@ -61,11 +68,8 @@ export class ListsComponent implements OnInit {
 
   deleteList(listId: number) {
     this.listsService.deleteList(listId).subscribe((res: any) => {
-      console.log(res);
-    });
-
-    this.listsService.getLists().subscribe((res ) => {
-      this.lists = Object(res).data;
+      this.lists = this.lists.filter((item) => item.id !== listId)
+      /*console.log(res);*/
     });
   }
 }
