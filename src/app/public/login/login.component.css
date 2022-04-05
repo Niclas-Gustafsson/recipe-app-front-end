@@ -1,0 +1,12 @@
+
+h1 {
+  margin: 8rem 0 3rem 0;
+}
+.form {
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+input {
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,70 @@
+<div class="container">
+  <!--Insert row-->
+  <h1 class="text-center my-5">Search</h1>
+  <h4 class="text-center">Search for recipes below</h4>
+  <div class="container">
+    <form class="form-floating" [formGroup]="form" (submit)="searchRecipe()" name="search">
+
+      <div class="" *ngIf="!isValid">
+        <p  class="errorMsg"> {{errorMessage}} </p>
+      </div>
+
+      <div class="form-floating mb-3 ff-inner">
+        <input formControlName="query" type="search" class="form-control search-field mx-auto" id="floatingInput" placeholder="search">
+        <label for="floatingInput" class="text-center">Search recipes</label>
+
+        <div class="form-group">
+          <select name="diet" class="form-select">
+            <option disabled selected value="null">Choose a diet</option>
+            <option value="gluten+free">Gluten free</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select name="dishTypes" class="form-select">
+            <option disabled selected value="null">Choose a dish type</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="dessert">Dessert</option>
+            <option value="main+course">Main course</option>
+          </select>
+        </div>
+        <!--<div class="form-group">
+            <label for="diet">Choose diet</label>
+            <select id="diet"
+                    formControlName="diet"
+                    class="form-select"
+                    (change)="changeDiet($event)"
+                    >
+              <option disabled selected value="null">Choose a Diet</option>
+              <option *ngFor="let diet of diets" [ngValue]="diet">{{ diet }}</option>
+            </select>
+        </div>-->
+
+          <!--<div class="row search-button">-->
+            <button type="submit" class="btn btn-success btn-lg">Search</button>
+          <!--</div>-->
+        </div>
+    </form>
+    <!--End row-->
+    <section class="py-5">
+      <div class="container px-5 my-5">
+        <div class="row gx-5">
+          <div class="col-lg-4 mb-5" *ngFor="let recipe of recipes">
+            <div class="card h-100 shadow border-0" (click)="sendRecipeId(recipe.id)">
+              <img class="card-img-top" src="{{recipe.image}}" alt="" />
+              <div class="card-body p-4">
+                <!--<div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>-->
+
+                <!--[routerLink]="['/recipe', recipe.id]" put on line below-->
+                <a class="text-decoration-none link-dark stretched-link" ><h5 class="card-title mb-3">{{recipe.title}}</h5></a>
+                <p class="card-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+

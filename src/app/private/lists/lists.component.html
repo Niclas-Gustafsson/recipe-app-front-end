@@ -1,0 +1,76 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1 class="my-5">Lists here</h1>
+      <form [formGroup]="form" class="form mt-3 mb-5 p-3" (submit)="submit()">
+        <div class="form-group">
+          <label for="title">Create new list</label>
+          <input formControlName="title" type="text" id="title" class="form-control my-3" name="title" autocomplete=""
+                 placeholder="New list">
+        </div>
+
+        <button class="btn btn-lg btn-success btn-block mb-5"> Create new list</button>
+      </form>
+      <div *ngIf="lists !== undefined" class="row" >
+        <div class="row" >
+          <!--
+          [ngSwitch]="listId"
+          *ngSwitchCase="list.id"
+          -->
+          <div class="row d-flex align-items-center bg-light p-2 my-1 recipe" *ngFor="let list of lists">
+            <div class="col-sm-8">
+              <a (click)="getId(list.id)" [routerLink]="[list.id]"><h5>{{list.title}}</h5></a>
+
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-danger" (click)="deleteList(list.id)">Delete list</button>
+            </div>
+          </div>
+          <!--<ul class="list-group" *ngFor="let list of lists">
+
+            <a (click)="getId(list.id)" [routerLink]="[list.id]"><li class="list-group-item">{{list.title}}</li></a>
+            &lt;!&ndash;[state]="{data: recipes}"&ndash;&gt;
+          </ul>-->
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="container py-5">
+        <div class="row">
+
+      <h2>list details here</h2>
+      <app-recipe-list *ngIf="isClicked" [recipes]="recipes"></app-recipe-list>
+      <!--<router-outlet></router-outlet>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small>And some small print.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small class="text-muted">And some muted small print.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small class="text-muted">And some muted small print.</small>
+  </a>
+</div>-->

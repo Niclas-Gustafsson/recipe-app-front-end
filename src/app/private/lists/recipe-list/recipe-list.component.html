@@ -1,0 +1,14 @@
+<!--<p>recipe-list works!</p>-->
+<div class="container">
+
+<div class="row d-flex align-items-center bg-light p-2 my-1 recipe" *ngFor="let recipe of recipes">
+  <div class="col-sm-8">
+  <h4>{{ recipe.recipe }}</h4>
+
+  </div>
+  <div class="col-sm d-flex justify-content-between">
+    <a [routerLink]="['/recipe/' + recipe.recipe_id]">View details</a>
+    <button class="btn btn-danger" (click)="deleteRecipe(recipe.id, recipe.user_list_id)">Remove</button>
+  </div>
+</div>
+</div>
