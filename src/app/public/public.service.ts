@@ -8,7 +8,8 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicService {
-  private apiURL = 'http://127.0.0.1:8000/api';
+  /*private apiURL = 'http://127.0.0.1:8000/api';*/
+  private apiURL = 'https://be-recipe-app.herokuapp.com/api'
   loggedInAreWe!: boolean;
 
   constructor(private http: HttpClient) { }
@@ -16,13 +17,16 @@ export class PublicService {
     httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
         "Authorization": `Bearer ${localStorage.getItem("token")}`
       })
     }
 
   //login user
   login(data: object) {
-    return this.http.post(`${this.apiURL}/login`, data);
+    return this.http.post(`${this.apiURL}/login`, data, this.httpOptions);
   }
   //register user
   register(data: object) {
