@@ -22,7 +22,7 @@ yarn-error.log
 
 # dotenv environment variables
 .env
-src/environments/
+
 
 # Visual Studio Code
 .vscode/*
