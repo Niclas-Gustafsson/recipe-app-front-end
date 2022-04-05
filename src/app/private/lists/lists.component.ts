@@ -3,8 +3,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ListsService} from "./lists.service";
 import {List} from "./list";
 import {Recipe} from "./recipe";
-import {Observable, throwError} from "rxjs";
-import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -38,13 +36,8 @@ export class ListsComponent implements OnInit {
     this.listsService.getRecipes(listId).subscribe((res: Recipe[]) => {
       this.recipes = Object(res).data;
       this.isClicked = true;
-      console.log(this.recipes)
-      //Push recipes to the "state" browser history property "data" and set a new property of type array named recipes. This to be able to fetch the history data property in the child component.
-      //history.state.data.push(this.recipes);
-      //console.log(this.recipes)
+
     });
-    /*this.listId = this.elementRef.nativeElement.getAttribute('listId');
-    console.log(this.listId);*/
   }
 
   submit() {
@@ -54,12 +47,7 @@ export class ListsComponent implements OnInit {
       title: formData.title,
     }
     this.listsService.createList(data).subscribe((res: any) => {
-      console.log(res.data.id);
-      /*this.lists = this.lists.map((item) => this.lists = item)*/
-      //console.log('result');
-      /*console.log(res);*/
-      //localStorage.setItem('token', res.data.token);
-      //this.router.navigate(['/login']);
+
     });
     this.listsService.getLists().subscribe((res ) => {
       this.lists = Object(res).data;
@@ -69,7 +57,6 @@ export class ListsComponent implements OnInit {
   deleteList(listId: number) {
     this.listsService.deleteList(listId).subscribe((res: any) => {
       this.lists = this.lists.filter((item) => item.id !== listId)
-      /*console.log(res);*/
     });
   }
 }

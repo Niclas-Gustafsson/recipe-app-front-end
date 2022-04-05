@@ -3,15 +3,14 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {List} from "./list";
 import {Observable, throwError} from "rxjs";
 import { catchError } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
 import {Recipe} from "./recipe";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListsService {
-  private apiURL = 'http://127.0.0.1:8000/api';
-  //recipes: Recipe[] = [];
+  /*private apiURL = 'http://127.0.0.1:8000/api';*/
+  private apiUrl = 'https://be-recipe-app.herokuapp.com/api'
   constructor(private http: HttpClient) { }
 
 
@@ -26,7 +25,7 @@ export class ListsService {
   //Create list
   createList(data: object): Observable<List> {
 
-    return this.http.post<List>(`${this.apiURL}/create-list/${localStorage.getItem("id")}`, data, this.httpOptions)
+    return this.http.post<List>(`${this.apiUrl}/create-list/${localStorage.getItem("id")}`, data, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -34,23 +33,20 @@ export class ListsService {
 
   //Get user lists
   getLists(): Observable<List[]>  {
-    return this.http.get<List[]>(`${this.apiURL}/lists/${localStorage.getItem('id')}`, this.httpOptions)
+    return this.http.get<List[]>(`${this.apiUrl}/lists/${localStorage.getItem('id')}`, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
   getRecipes(listId:number): Observable<Recipe[]> {
-    //this.recipes = this.http.get<Recipe[]>(`${this.apiURL}/list/${listId}`, this.httpOptions)
-    return this.http.get<Recipe[]>(`${this.apiURL}/list/${listId}`, this.httpOptions)
+    return this.http.get<Recipe[]>(`${this.apiUrl}/list/${listId}`, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   deleteList(listId: number): Observable<object>{
-    //return this.httpOptions;
-    //console.log(this.httpOptions);
-    return this.http.get(`${this.apiURL}/list/delete/${listId}`, this.httpOptions)
+    return this.http.get(`${this.apiUrl}/list/delete/${listId}`, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -58,13 +54,13 @@ export class ListsService {
 
   //Recipes
   addRecipe(listId: number, data: object) {
-    return this.http.post(`${this.apiURL}/add-recipe/${listId}`,
+    return this.http.post(`${this.apiUrl}/add-recipe/${listId}`,
       JSON.stringify(data),
       this.httpOptions);
   }
   //remove recipe
   deleteRecipe(id: number) {
-    return this.http.post(`${this.apiURL}/remove-recipe/${id}`, null, this.httpOptions);
+    return this.http.post(`${this.apiUrl}/remove-recipe/${id}`, null, this.httpOptions);
   }
 
   errorHandler(error:any) {

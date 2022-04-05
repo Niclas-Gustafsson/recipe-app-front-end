@@ -31,8 +31,7 @@ export class RegistrationComponent implements OnInit {
     }
     if(formData.password === formData.confirm_password) {
       this.publicService.register(data).subscribe((res: any) => {
-        //console.log(res);
-        //localStorage.setItem('token', res.data.token);
+
         this.router.navigate(['/login']);
       }, err => {
         console.log('error');
