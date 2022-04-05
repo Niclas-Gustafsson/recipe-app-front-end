@@ -18,7 +18,7 @@ const targetPath = isProduction
 const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
-   API_URL: "${process.env["API_KEY"]}",
+   API_KEY: "${process.env["API_KEY"]}",
 
 };
 `;
