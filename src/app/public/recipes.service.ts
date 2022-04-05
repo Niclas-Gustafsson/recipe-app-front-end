@@ -4,10 +4,12 @@ import { environment } from '../../environments/environment';
 import {Observable, throwError, map, BehaviorSubject} from "rxjs";
 import {Recipe} from "./recipe";
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
+  
   apiKey!: string;
   apiUrl = 'https://api.spoonacular.com/recipes';
   recipes: Recipe[] = [];
