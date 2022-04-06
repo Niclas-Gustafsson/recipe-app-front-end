@@ -9,8 +9,8 @@ import {Recipe} from "./recipe";
   providedIn: 'root'
 })
 export class ListsService {
-  /*private apiURL = 'http://127.0.0.1:8000/api';*/
-  private apiUrl = 'https://be-recipe-app.herokuapp.com/api'
+
+  private apiUrl = 'http://127.0.0.1:8000/api'
   constructor(private http: HttpClient) { }
 
 

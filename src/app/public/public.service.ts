@@ -8,8 +8,8 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicService {
-  /*private apiURL = 'http://127.0.0.1:8000/api';*/
-  private apiURL = 'https://be-recipe-app.herokuapp.com/api'
+
+  private apiURL = 'http://127.0.0.1:8000/api'
   loggedInAreWe!: boolean;
 
   constructor(private http: HttpClient) { }
