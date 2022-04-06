@@ -9,14 +9,14 @@ import {Recipe} from "./recipe";
   providedIn: 'root'
 })
 export class RecipesService {
-  
+
   apiKey!: string;
   apiUrl = 'https://api.spoonacular.com/recipes';
   recipes: Recipe[] = [];
   recipeId!: number;
   recipeId$ = new BehaviorSubject<number>(0);
   selectedRecipe$ = this.recipeId$.asObservable();
-
+  random: string = `${this.apiUrl}/complexSearch?apiKey=${this.apiUrl}&query=${this.apiUrl}&diet=${this.apiUrl}&type=${this.apiUrl}`
 
   httpOptions = {
     headers: new HttpHeaders({
