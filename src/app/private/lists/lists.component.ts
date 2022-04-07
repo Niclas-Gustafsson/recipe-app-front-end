@@ -66,6 +66,10 @@ export class ListsComponent implements OnInit {
   deleteList(listId: number) {
     this.listsService.deleteList(listId).subscribe((res: any) => {
       this.lists = this.lists.filter((item) => item.id !== listId)
+      this.listsService.getRecipes(listId).subscribe((res: Recipe[]) => {
+        this.recipes = Object(res).data;
+
+      });
     });
   }
 }
