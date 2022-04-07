@@ -1,10 +1,10 @@
 <header class="masthead my-5" >
-  <div class="container position-relative">
+  <div class="container position-relative" *ngIf="recipe">
     <div class="row justify-content-center">
       <div class="col-xl-6">
         <div class="text-center text-dark">
           <!-- Page heading-->
-          <h1 class="my-5">{{ recipe.title }}</h1>
+          <h1 class="my-5" >{{ recipe.title }}</h1>
 
         </div>
       </div>
