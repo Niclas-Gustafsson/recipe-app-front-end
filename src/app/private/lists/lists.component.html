@@ -3,10 +3,12 @@
     <div class="col-sm-6">
       <h1 class="my-5">Lists here</h1>
       <form [formGroup]="form" class="form mt-3 mb-5 p-3" (submit)="submit()">
+        <p class="errMsg" *ngIf="!isValid"> {{ errMsg }}</p>
         <div class="form-group">
           <label for="title">Create new list</label>
           <input formControlName="title" type="text" id="title" class="form-control my-3" name="title" autocomplete=""
-                 placeholder="New list">
+           placeholder="New list"
+           required>
         </div>
 
         <button class="btn btn-lg btn-success btn-block mb-5"> Create new list</button>
