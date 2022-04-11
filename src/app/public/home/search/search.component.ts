@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
 
 
         const formData = this.form.getRawValue();
-      let data = {
+        let data = {
         query: formData.query,
         diet: formData.diet,
         type: formData.dishTypes,
